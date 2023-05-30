@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Read</title>
+        <style>
+            body{
+                background-color:coral;
+            }
+            .box{
+                margin-left:30%;
+                margin-top:10%;
+                border: 2px;
+                height:60%;
+                width:50%;
+                background-color:chocolate;
+                border:2px;
+                font-size:50px;
+            }
+
+            .box button{
+                font-size:30px;
+                border-color: blue;
+
+            }
+            .box button:hover{
+                font-size:30px;
+                background:chartreuse;
+
+            }
+            .box input{
+                font-size:30px;
+            }
+        </style>
+    </head>
+ 
+
+    <body>
+        <h1 align="center">Delete the Details of student!</h1>
+        <form method="GET" action="/deletestudent">
+            <div class="box">
+                
+                <label>Enter your id here</label><br>
+                <input type="number" name="id" placeholder="writee your id" required>
+                <button type="submit">Delete</button>
+                <br>
+                <a href="./">Back to homepage</a>
+            </div>
+        </form>
+        </div>
+    </body>
+</html>
