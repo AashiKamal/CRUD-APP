@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>CRUD APP</title>
+		<style>
+			body{
+				background-color:aqua;
+				background-image: url("bg.jpg");
+				background-position: fixed;
+				background-size: cover;
+				
+			}
+			h1{
+				font-size:40px;
+				color:black;
+			}
+			.box{
+				margin-left:23%;
+			}
+			.box a button{
+				font-size:30px;
+				color:palevioletred;
+			}
+			.box a button:hover{
+				background-color:lightgreen;
+				color:white;
+			}
+			table{
+            width:60%;
+			background-color:lightgray;
+          
+
+           }
+		   table tr th{
+            font-size:40px;
+
+           }
+           table td {
+            font-size:40px;
+           }
+           
+            
+           table td {
+            font-size:40px;
+           }
+           
+            
+		</style>
+	</head>
+
+
+	
+	<body>
+	<h1 align ="center" ><u>Student Management System</u></h1>
+    <br>
+    
+		<div class="box">
+			<a href="/add"><button>Add Student</button></a>
+			<a href="/delete"><button>Delete Student</button></a>
+			<a href="/Update"><button>Update Student</button></a>
+			<a href="/Search"><button>Search Student</button></a>
+	
+		</div>
+		<br>
+		 
+      
+        <table align="center"  border="2px" id="panel">
+            <tr>
+                <th>Reg. Id</th>
+                <th>Name</th>
+                <th>Course</th>
+            </tr>
+            
+
+        </table>
+
+		<script>
+			
+			let panel = document.getElementById('panel')
+			let user 
+
+			function updateTable(user){	
+				let studentId = document.createElement('td')
+				let studentName= document.createElement('td')
+				let studentCourse = document.createElement('td')
+				let tr = document.createElement('tr')
+				
+				studentId.innerHTML = user.id;
+				tr.appendChild(studentId)
+				panel.appendChild(tr)
+
+				studentName.innerHTML = user.name;
+				tr.appendChild(studentName)
+				panel.appendChild(tr)
+
+				studentCourse.innerHTML = user.course;
+				tr.appendChild(studentCourse)
+				panel.appendChild(tr)
+			} 
+
+			function iteratestudent(user){
+		
+				for(let entry of user){
+
+					updateTable(entry)
+				}
+			}
+
+			function getData() {
+  
+			    // First create an XMLHttprequest object
+			    const xhr = new XMLHttpRequest();
+			    xhr.open("GET", "/getData", true);
+			    xhr.getResponseHeader("Content-type", "application/json");
+			  
+			    xhr.onload = function() {
+			        user = JSON.parse(this.responseText);
+			        iteratestudent(user)
+			    }
+			  
+			    xhr.send();
+			}
+
+			getData()
+			console.log(user)
+
+		</script>
+
+
+	</body>
+    
+
+</html>
